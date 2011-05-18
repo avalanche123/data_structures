@@ -1,55 +1,34 @@
-var Graph, intersection, turns;
+var Graph, intersection, vertices;
 
 Graph = require('./../lib/graph');
 
+vertices = ['AB', 'AC', 'AD', 'BA', 'BC', 'BD', 'DA', 'DB', 'DC', 'EA', 'EB', 'EC', 'ED'];
+
 intersection = new Graph();
+intersection.setVertices(vertices);
 
-turns = {
-  AB: intersection.vertix('AB'),
-  AC: intersection.vertix('AC'),
-  AD: intersection.vertix('AD'),
-  BA: intersection.vertix('BA'),
-  BC: intersection.vertix('BC'),
-  BD: intersection.vertix('BD'),
-  DA: intersection.vertix('DA'),
-  DB: intersection.vertix('DB'),
-  DC: intersection.vertix('DC'),
-  EA: intersection.vertix('EA'),
-  EB: intersection.vertix('EB'),
-  EC: intersection.vertix('EC'),
-  ED: intersection.vertix('ED')
-}
+intersection.edge('AB', 'EA');
+intersection.edge('AB', 'DA');
+intersection.edge('AB', 'BC');
+intersection.edge('AB', 'BD');
+intersection.edge('AC', 'EA');
+intersection.edge('AC', 'DA');
+intersection.edge('AC', 'DB');
+intersection.edge('AC', 'EB');
+intersection.edge('AC', 'BD');
+intersection.edge('AD', 'EA');
+intersection.edge('AD', 'EB');
+intersection.edge('AD', 'EC');
+intersection.edge('BC', 'DB');
+intersection.edge('BC', 'EB');
+intersection.edge('BD', 'DA');
+intersection.edge('BD', 'EB');
+intersection.edge('BD', 'EC');
+intersection.edge('DA', 'EC');
+intersection.edge('DA', 'EB');
+intersection.edge('DB', 'EC');
 
-intersection.edge(turns.AB, turns.EA);
-intersection.edge(turns.AB, turns.DA);
-intersection.edge(turns.AB, turns.BC);
-intersection.edge(turns.AB, turns.BD);
-intersection.edge(turns.AC, turns.EA);
-intersection.edge(turns.AC, turns.DA);
-intersection.edge(turns.AC, turns.DB);
-intersection.edge(turns.AC, turns.EB);
-intersection.edge(turns.AC, turns.BD);
-intersection.edge(turns.AD, turns.EA);
-intersection.edge(turns.AD, turns.EB);
-intersection.edge(turns.AD, turns.EC);
-intersection.edge(turns.BC, turns.DB);
-intersection.edge(turns.BC, turns.EB);
-intersection.edge(turns.BD, turns.DA);
-intersection.edge(turns.BD, turns.EB);
-intersection.edge(turns.BD, turns.EC);
-intersection.edge(turns.DA, turns.EC);
-intersection.edge(turns.DA, turns.EB);
-intersection.edge(turns.DB, turns.EC);
-
-console.log(intersection.greedy().map(function(vertix) {
-  return vertix.name;
-}));
-console.log(intersection.greedy().map(function(vertix) {
-  return vertix.name;
-}));
-console.log(intersection.greedy().map(function(vertix) {
-  return vertix.name;
-}));
-console.log(intersection.greedy().map(function(vertix) {
-  return vertix.name;
-}));
+console.log(intersection.greedy());
+console.log(intersection.greedy());
+console.log(intersection.greedy());
+console.log(intersection.greedy());
